@@ -1,14 +1,14 @@
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="{{ $config->modelNames->dashedPlural }}-table">
+        <table class="table table-striped gy-7 gs-7" id="{{ $config->modelNames->dashedPlural }}-table">
             <thead>
-            <tr>
+            <tr class="fw-semibold fs-6 text-gray-800 border-bottom border-gray-200 ">
                 {!! $fieldHeaders !!}
-@if($config->options->localized)
-                <th colspan="3">@lang('crud.action')</th>
-@else
-                <th colspan="3">Action</th>
-@endif
+                @if($config->options->localized)
+                    <th colspan="3" class="text-center">@@lang('crud.action')</th>
+                @else
+                    <th colspan="3" class="text-center">Action</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -19,14 +19,14 @@
                         @{!! Form::open(['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-eye"></i>
+                               class='btn btn-icon btn-sm btn-light-success btn-xs'>
+                                <i class="fa-solid fa-eye"></i>
                             </a>
                             <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.edit', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
+                               class='btn btn-icon btn-sm btn-light-primary btn-xs'>
+                                <i class="fa-solid fa-edit"></i>
                             </a>
-                            @{!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            @{!! Form::button('<i class="fa-solid fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-icon btn-sm btn-light-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                         </div>
                         @{!! Form::close() !!}
                     </td>
@@ -36,7 +36,7 @@
         </table>
     </div>
 
-    <div class="card-footer clearfix">
+    <div class="card-footer clearfix py-4">
         <div class="float-right">
             {!! $paginate !!}
         </div>

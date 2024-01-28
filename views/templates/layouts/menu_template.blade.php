@@ -1,10 +1,13 @@
-<li class="nav-item">
-    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="nav-link @{{ Request::is('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+<div class="menu-item">
+        <a class="menu-link {{ Route::is('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') ? 'active' : '' }}"
+                href="{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}">
+                <span class="menu-bullet">
+                        <i class="nav-icon fas fa-home"></i>
+                </span>
 @if($config->options->localized)
-        <p>@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</p>
+        <span class="menu-title">@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</span>
 @else
-        <p>{{ $config->modelNames->humanPlural }}</p>
+        <span class="menu-title">{{ $config->modelNames->humanPlural }}</span>
 @endif
-    </a>
-</li>
+        </a>
+</div>

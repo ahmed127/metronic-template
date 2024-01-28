@@ -1,4 +1,4 @@
-@@extends('layouts.app')
+@@extends('{{ $config->prefixes->getRoutePrefixWith('.') }}layouts.app')
 
 @@section('content')
     <section class="content-header">
