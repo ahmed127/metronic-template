@@ -21,8 +21,8 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}"
-                            class="text-muted text-hover-primary">@lang('lang.dashboard')</a>
+                        <a href='@{{ route(' {!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}'
+                            class="text-muted text-hover-primary">@@lang('lang.dashboard')</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -32,9 +32,9 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}"
-                            class="text-muted text-hover-primary">
-                            @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
+                        <a href='@{{ route(' {!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural
+                            !!}.index') }}' class="text-muted text-hover-primary">
+                            @@lang('models/{!! $config->modelNames->camelPlural !!}.plural')
                         </a>
                     </li>
                     <!--end::Item-->
