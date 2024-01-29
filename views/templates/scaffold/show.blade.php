@@ -1,4 +1,4 @@
-@@extends('{{ $config->prefixes->getRoutePrefixWith('.') }}layouts.app')
+@@extends('layouts.app')
 
 @@section('content')
 <div class="d-flex flex-column flex-column-fluid">
@@ -57,9 +57,9 @@
                 <a class="btn btn-sm btn-secondary float-right"
                     href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural  !!}.index') }}">
                     @if($config->options->localized)
-                        Back
+                    Back
                     @else
-                        @@lang('crud.back')
+                    @@lang('crud.back')
                     @endif
                 </a>
             </div>
@@ -75,7 +75,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row gap-1">
-                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural }}.show_fields')
+                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural
+                        }}.show_fields')
                     </div>
                 </div>
             </div>

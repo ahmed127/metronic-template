@@ -1,4 +1,4 @@
-@@extends('{{ $config->prefixes->getRoutePrefixWith('.') }}layouts.app')
+@@extends('layouts.app')
 
 @@section('content')
 <div class="d-flex flex-column flex-column-fluid">
@@ -72,19 +72,22 @@
             <div class="clearfix"></div>
             <div class="card">
 
-                @{!! Form::open(['route' => '{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural}}.store']) !!}
+                @{!! Form::open(['route' => '{{ $config->prefixes->getRoutePrefixWith('.') }}{{
+                $config->modelNames->camelPlural}}.store']) !!}
 
                 <div class="card-body">
 
                     <div class="row">
-                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural}}.fields')
+                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{
+                        $config->modelNames->snakePlural}}.fields')
                     </div>
 
                 </div>
 
                 <div class="card-footer py-4 text-end">
                     <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}"
-                        class="btn btn-sm btn-secondary">@if($config->options->localized) @@lang('crud.cancel') @else Cancel @endif</a>
+                        class="btn btn-sm btn-secondary">@if($config->options->localized) @@lang('crud.cancel') @else
+                        Cancel @endif</a>
                     @{!! Form::submit('Save', ['class' => 'btn btn-sm btn-primary']) !!}
                 </div>
 
