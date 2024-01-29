@@ -32,7 +32,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href='@{{ route(' {!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural
+                        <a href='@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural
                             !!}.index') }}' class="text-muted text-hover-primary">
                             @@lang('models/{!! $config->modelNames->camelPlural !!}.plural')
                         </a>
