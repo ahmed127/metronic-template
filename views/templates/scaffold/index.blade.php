@@ -38,9 +38,9 @@
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         @if($config->options->localized)
-                            <h1>@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</h1>
+                            @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
                         @else
-                            <h1>{{ $config->modelNames->humanPlural }}</h1>
+                            {{ $config->modelNames->humanPlural }}
                         @endif
                     </li>
                     <!--end::Item-->
