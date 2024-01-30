@@ -66,6 +66,7 @@
             @include('flash::message')
 
             <div class="clearfix"></div>
+            @@if(false)
             <div class="card shadow-sm my-3 ">
                 <div class="card-header collapsible cursor-pointer rotate collapsed" data-bs-toggle="collapse"
                     data-bs-target="#kt_docs_card_collapsible" aria-expanded="false">
@@ -98,6 +99,7 @@
                     @{!! Form::close() !!}
                 </div>
             </div>
+            @@endif
             <div class="card">
                 {!! $table !!}
             </div>
