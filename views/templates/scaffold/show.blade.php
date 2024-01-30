@@ -57,9 +57,9 @@
                 <a class="btn btn-sm btn-secondary float-right"
                     href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural  !!}.index') }}">
                     @if($config->options->localized)
-                    Back
-                    @else
                     @@lang('crud.back')
+                    @else
+                    Back
                     @endif
                 </a>
             </div>
