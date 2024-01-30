@@ -73,7 +73,7 @@
             <div class="clearfix"></div>
             <div class="card">
 
-                @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->camelPlural}}.store']) !!}
+                @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->camelPlural}}.store','files' => true]) !!}
 
                 <div class="card-body">
 
