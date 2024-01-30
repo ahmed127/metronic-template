@@ -1,5 +1,7 @@
 @@extends('{{ $config->prefixes->getViewPrefixForInclude() }}layouts.app')
 
+@@section('title', __('models/{{ $config->modelNames->camelPlural }}.singular'))
+
 @@section('content')
 <div class="d-flex flex-column flex-column-fluid">
     <!--begin::Toolbar-->
