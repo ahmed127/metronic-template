@@ -13,9 +13,9 @@
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
                     @if($config->options->localized)
-                        <h1>@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</h1>
+                    <h1>@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</h1>
                     @else
-                        <h1>{{ $config->modelNames->humanPlural }}</h1>
+                    <h1>{{ $config->modelNames->humanPlural }}</h1>
                     @endif
                 </h1>
                 <!--end::Title-->
@@ -23,8 +23,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}"
-                            class="text-muted
+                        <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}" class="text-muted
                             text-hover-primary">
                             @@lang('lang.dashboard')
                         </a>
@@ -38,9 +37,9 @@
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         @if($config->options->localized)
-                            @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
+                        @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
                         @else
-                            {{ $config->modelNames->humanPlural }}
+                        {{ $config->modelNames->humanPlural }}
                         @endif
                     </li>
                     <!--end::Item-->
@@ -50,7 +49,8 @@
             <!--end::Page title-->
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <a class="btn btn-sm btn-primary float-right" href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.create') }}">
+                <a class="btn btn-sm btn-primary float-right"
+                    href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.create') }}">
                     <i class="fa-solid fa-plus"></i>
                     @@lang('crud.add_new')
                 </a>
@@ -66,7 +66,7 @@
             @include('flash::message')
 
             <div class="clearfix"></div>
-            @@if(false)
+            @@if(true)
             <div class="card shadow-sm my-3 ">
                 <div class="card-header collapsible cursor-pointer rotate collapsed" data-bs-toggle="collapse"
                     data-bs-target="#kt_docs_card_collapsible" aria-expanded="false">
@@ -79,9 +79,16 @@
                     </div>
                 </div>
                 <div id="kt_docs_card_collapsible" class="collapse">
-                    @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->camelPlural}}.index', 'method' => 'GET']) !!}
+                    @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{
+                    $config->modelNames->camelPlural}}.index', 'method' => 'GET']) !!}
                     <div class="card-body">
                         <div class="row">
+                            <!-- pagination Field -->
+                            <div class="form-group col-sm-4">
+                                @{!! Form::label('pagination', __('crud.pagination') . ':') !!}
+                                @{!! Form::select('pagination', config('statusSystem.pagination'), request('pagination') ??
+                                null, ['class' => 'form-control']) !!}
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer py-4">
@@ -90,7 +97,8 @@
                             @@lang('crud.search')
                         </button>
                         @if (count(request()->all())>0)
-                        <a class="btn btn-sm btn-danger float-right" href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}">
+                        <a class="btn btn-sm btn-danger float-right"
+                            href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}">
                             <i class="fa-solid fa-circle-xmark"></i>
                             @@lang('crud.reset')
                         </a>
