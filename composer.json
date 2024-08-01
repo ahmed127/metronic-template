@@ -41,6 +41,5 @@
             "url": "https://opencollective.com/infyomlabs"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "minimum-stability": "stable"
 }
