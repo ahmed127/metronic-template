@@ -1,1 +1,1 @@
-<th>@@lang('models/${!! $modelVariable !!}.fields.{!! $fieldTitle !!}')</th>
+<th>@@lang('models/modelVariable.fields.{!! $fieldTitle !!}')</th>
