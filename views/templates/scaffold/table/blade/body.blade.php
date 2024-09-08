@@ -18,15 +18,21 @@
                     <td  style="width: 120px">
                         @{!! Form::open(['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}], 'method' => 'delete']) !!}
                         <div class='btn-group'>
+                            @@can('{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.show')
                             <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
                                class='btn btn-icon btn-sm btn-light-success btn-xs'>
                                 <i class="fa-solid fa-eye"></i>
                             </a>
+                            @@endcan
+                            @@can('{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.edit')
                             <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.edit', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
                                class='btn btn-icon btn-sm btn-light-primary btn-xs'>
                                 <i class="fa-solid fa-edit"></i>
                             </a>
+                            @@endcan
+                            @@can('{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy')
                             @{!! Form::button('<i class="fa-solid fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-icon btn-sm btn-light-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            @@endcan
                         </div>
                         @{!! Form::close() !!}
                     </td>

@@ -24,18 +24,12 @@
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}"
-                            class="text-muted text-hover-primary">@@lang('lang.dashboard')</a>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-500 w-5px h-2px"></span>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">
-                        <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="text-muted text-hover-primary">
-                            @@lang('models/{!! $config->modelNames->camelPlural !!}.plural')
+                            class="text-muted text-hover-primary">
+                            @if($config->options->localized)
+                            @@lang('lang.dashboard')
+                            @else
+                            Dashboard
+                            @endif
                         </a>
                     </li>
                     <!--end::Item-->
@@ -46,7 +40,28 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
+                        <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}"
+                            class="text-muted text-hover-primary">
+                            @if($config->options->localized)
+                            @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
+                            @else
+                            {{ $config->modelNames->humanPlural }}
+                            @endif
+                        </a>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-500 w-5px h-2px"></span>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-muted">
+                        @if($config->options->localized)
                         @@lang('crud.create')
+                        @else
+                        Create
+                        @endif
                     </li>
                     <!--end::Item-->
                 </ul>
@@ -57,7 +72,11 @@
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}"
                     class="btn btn-sm btn-secondary">
+                    @if($config->options->localized)
                     @@lang('crud.cancel')
+                    @else
+                    Cancel
+                    @endif
                 </a>
             </div>
             <!--end::Actions-->
@@ -73,12 +92,14 @@
             <div class="clearfix"></div>
             <div class="card">
 
-                @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->camelPlural}}.store','files' => true]) !!}
+                @{!! Form::open(['route' => '{{ $config->prefixes->getViewPrefixForInclude() }}{{
+                $config->modelNames->camelPlural}}.store','files' => true]) !!}
 
                 <div class="card-body">
 
                     <div class="row">
-                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural}}.fields')
+                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{
+                        $config->modelNames->snakePlural}}.fields')
                     </div>
 
                 </div>
@@ -86,11 +107,12 @@
                 <div class="card-footer py-4 text-end">
                     <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}"
                         class="btn btn-sm btn-secondary">
-                        @if($config->options->localized) 
-                        @@lang('crud.cancel') 
+                        @if($config->options->localized)
+                        @@lang('crud.cancel')
                         @else
-                        Cancel 
-                        @endif</a>
+                        Cancel
+                        @endif
+                    </a>
                     @{!! Form::submit('Save', ['class' => 'btn btn-sm btn-primary']) !!}
                 </div>
 

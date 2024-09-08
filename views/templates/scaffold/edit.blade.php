@@ -26,7 +26,11 @@
                         <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}dashboard') }}"
                             class="text-muted
                             text-hover-primary">
+                            @if($config->options->localized)
                             @@lang('lang.dashboard')
+                            @else
+                            Dashboard
+                            @endif
                         </a>
                     </li>
                     <!--end::Item-->
@@ -38,7 +42,11 @@
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         <a href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="text-muted text-hover-primary">
-                            @@lang('models/{!! $config->modelNames->camelPlural !!}.plural')
+                            @if($config->options->localized)
+                            @@lang('models/{{ $config->modelNames->camelPlural }}.plural')
+                            @else
+                            {{ $config->modelNames->humanPlural }}
+                            @endif
                         </a>
                     </li>
                     <!--end::Item-->

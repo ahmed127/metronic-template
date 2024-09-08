@@ -5,9 +5,9 @@
                         <i class="nav-icon fas fa-home"></i>
                 </span>
                 @if($config->options->localized)
-                        <span class="menu-title">@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</span>
+                <span class="menu-title">@@lang('models/{{ $config->modelNames->camelPlural }}.plural')</span>
                 @else
-                        <span class="menu-title">{{ $config->modelNames->humanPlural }}</span>
+                <span class="menu-title">{{ $config->modelNames->humanPlural }}</span>
                 @endif
         </a>
 </div>

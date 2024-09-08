@@ -49,11 +49,13 @@
             <!--end::Page title-->
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
+                @@can('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.create')
                 <a class="btn btn-sm btn-primary float-right"
                     href="@{{ route('{!! $config->prefixes->getViewPrefixForInclude() !!}{!! $config->modelNames->camelPlural !!}.create') }}">
                     <i class="fa-solid fa-plus"></i>
                     @@lang('crud.add_new')
                 </a>
+                @@endcan
             </div>
             <!--end::Actions-->
         </div>
