@@ -17,11 +17,19 @@
             "email": "me@mitul.me"
         }
     ],
+     "repositories": [
+        {
+            "type": "vcs",
+            "name": "infyomlabs/laravel-ui-adminlte",
+            "version": "dev",
+            "url": "https://github.com/ahmed127/laravel-ui-adminlte.git"
+        }
+    ],
     "require": {
-        "php": "^8.1",
+        "PHP": ">=8.1",
         "illuminate/support": ">=10.0",
         "illuminate/view": ">=10.0",
-        "infyomlabs/laravel-ui-adminlte": "^5.2"
+        "infyomlabs/laravel-ui-adminlte": "dev"
     },
     "autoload": {
         "psr-4": {
