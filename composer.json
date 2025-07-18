@@ -21,7 +21,7 @@
         {
             "type": "vcs",
             "name": "infyomlabs/laravel-ui-adminlte",
-            "version": "dev",
+            "version": "dev-master",
             "url": "https://github.com/ahmed127/laravel-ui-adminlte.git"
         }
     ],
@@ -29,7 +29,7 @@
         "PHP": ">=8.1",
         "illuminate/support": ">=10.0",
         "illuminate/view": ">=10.0",
-        "infyomlabs/laravel-ui-adminlte": "dev"
+        "infyomlabs/laravel-ui-adminlte": "*"
     },
     "autoload": {
         "psr-4": {
