@@ -29,7 +29,7 @@
         "PHP": ">=8.1",
         "illuminate/support": ">=10.0",
         "illuminate/view": ">=10.0",
-        "infyomlabs/laravel-ui-adminlte": "*"
+        "infyomlabs/laravel-ui-adminlte": "^dev-master"
     },
     "autoload": {
         "psr-4": {
