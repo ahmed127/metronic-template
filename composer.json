@@ -21,7 +21,7 @@
         "PHP": ">=8.1",
         "illuminate/support": ">=10.0",
         "illuminate/view": ">=10.0",
-        "infyomlabs/laravel-ui-adminlte": "^5.2"
+        "infyomlabs/laravel-ui-adminlte": "^5.2.0"
     },
     "autoload": {
         "psr-4": {
